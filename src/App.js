@@ -1,23 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
+import { ApolloProvider } from '@apollo/client';
+import {client} from './client/apollo'
+import {TaskList} from './TaskList'
+import {TaskCreate} from './TaskCreate'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ApolloProvider client={client}>
+        <TaskList/>
+        <TaskCreate/>
+    </ApolloProvider>
     </div>
   );
 }
