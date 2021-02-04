@@ -5,6 +5,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: left;
+  
+    font-family:"VT323";
+  font-size: 1.5rem;
+  background: pink;
 }
 
 code {
