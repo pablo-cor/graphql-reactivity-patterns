@@ -1,8 +1,8 @@
 import './App.css';
 import { ApolloProvider } from '@apollo/client';
 import {client} from './client/apollo'
-import {TaskList} from './TaskList'
-import {TaskCreate} from './TaskCreate'
+import {TaskList} from './components/task-list/TaskList'
+import {TaskCreate} from './components/task-create/TaskCreate'
 
 function App() {
   return (
