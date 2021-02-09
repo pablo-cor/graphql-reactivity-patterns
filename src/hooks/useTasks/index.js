@@ -29,30 +29,6 @@ export default function useTasks() {
         }, 
     })
 
-    /* mutación que actualiza el orden */
-    const [ updateTask, { 
-        loading: updateTaskLoading, 
-        error: updateTaskError,
-    } ] = useMutation(UPDATE_TASK, {
-        update: (proxy, { data: { updateTask } }) => { 
-            const data = proxy.readQuery({ query: GET_TASKS });
-            proxy.writeQuery({ query: GET_TASKS, data: {
-            ...data,
-            tasks: [
-                ...data.tasks.map(task => {
-                    if (task.id === updateTask.id) {
-                        return{
-                            ...task,
-                            order: updateTask.order
-                        }
-                    }
-                    return task
-                }), 
-            ]
-            }});
-        },
-    })
-
     return {
         /* lectura */
         tasks,
@@ -63,10 +39,5 @@ export default function useTasks() {
         createTask,
         createTaskLoading,
         createTaskError,
-
-        /* edición */
-        updateTask,
-        updateTaskLoading,
-        updateTaskError,
     }
 }
